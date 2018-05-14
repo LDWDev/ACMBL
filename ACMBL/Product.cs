@@ -33,7 +33,7 @@ namespace ACMBL
         {
             get
             {
-                return StringHandler.InsertSpaces(_ProductName);
+                return _ProductName.InsertSpaces();
             }
             set { _ProductName = value; }
         }
