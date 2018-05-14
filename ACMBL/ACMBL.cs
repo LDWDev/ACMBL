@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Acme.Common;
 namespace ACMBL
 {
-    public class Customer
+    public class Customer :EntityBase, ILoggable
     {
         public Customer() :this(0)
         {
@@ -48,7 +48,7 @@ namespace ACMBL
             }
         }
 
-        public bool Validate()
+        public override bool Validate()
         {
             bool isValid = !(String.IsNullOrWhiteSpace(this.EmailAddress) || String.IsNullOrWhiteSpace(this.FullName)); //check if a field is null or whitespace
             return isValid;
@@ -56,6 +56,12 @@ namespace ACMBL
         public override string ToString()
         {
             return FullName;
+        }
+
+        public string Log()
+        {
+            var logResult = "Customer name: " + FullName + "\n" + "Order status: " + this.EntityState.ToString();
+            return logResult;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace ACMBL
                 customer.EmailAddress = "abc@def.com";
                 customer.FirstName = "abc";
                 customer.LastName = "def";
+                customer.EntityState = 0;
             }
 
             return customer;
